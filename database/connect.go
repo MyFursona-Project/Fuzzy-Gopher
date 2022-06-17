@@ -27,7 +27,7 @@ func ConnectSQL() *gorm.DB {
 	return db
 }
 func AutoMigrateSQL(pg_conn *gorm.DB) {
-	if err := pg_conn.AutoMigrate(); err != nil {
+	if err := pg_conn.AutoMigrate(&User{}, &Verify{}, &Profile{}, &Fursona{}, &FursonaMedia{}, &Like{}); err != nil {
 		tools.ErrorPanic(err)
 	}
 }
