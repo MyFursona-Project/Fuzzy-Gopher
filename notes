@@ -1,0 +1,43 @@
+Plans for the backend
+============================
+Database: MongoDB Or Postgres
+
+Endpoints:
+    GET  /api/fursona/trending => Get 10 Fursonas w/Lots of likes
+    POST /api/fursona/:uuid/like => Add a like to that fursona
+    POST /api/fursona/:uuid/dislike => Dislike a sona specied
+    GET  /api/fursona/:uuid/likes => Get the total amount of likes of the speicied sona
+    GET  /api/fursona/:uuid => Get the sona's information such as Likes, Gradients, pfp, artwork links
+    More May Come.....
+
+Database:
+
+Flags =>
+    FlagID: String (Must be unique, requried)
+    FlagName: String
+    FlagImage: String
+    Type: Country | Sexuality | Gender | US State
+Fursonas =>
+    FursonaUUID: String (Must be unique, required)
+    Flags: String[] (Only Flag IDs can be put)
+    Likes: Integer (Min: 0, Default: 0)
+    Fursona name: String (Up to 64 Characters, Required)
+    Fursona Info: String (Default: Not Set)
+    Artworks CDN Links: String[] (Default: []) 
+    Verified: Boolean (Default: False)
+    Fursona Bio: String (Up to 264 Characters)
+Users =>
+    FursonaUUIDs: String
+    Email: String
+    Username: String
+    Socials: { platform: String, link: String }
+    MainFursona: Fursona
+    
+Artworks => 
+    ArtworkID: String
+    ArtworkCDNLink: String
+    Artist: String
+    Spicy: Boolean (NSFW)
+    FursonaOwnerID: String
+    UserOwnerID: String
+    Likes: Number
